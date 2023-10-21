@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text Encryption</title>
+	<style type="text/css">
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif;
+		}
+
+		h1 {
+			color: #333333;
+			font-size: 24px;
+			margin-bottom: 20px;
+		}
+
+		p {
+			color: #333333;
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 5px;
+		}
+
+		input[type="text"] {
+			padding: 5px;
+			border-radius: 5px;
+			border: none;
+			margin-bottom: 10px;
+			width: 100%;
+		}
+
+		button {
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: white;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #3e8e41;
+		}
+
+		.warning {
+			color: red;
+			font-size: 14px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Text Encryption</h1>
+	
+    <p>Please enter your message below:</p>
+
+    <label for="message">Message:</label>
+    <input type="text" id="message" name="message">
+
+    <button onclick="encrypt()">Encrypt</button>
+    <button onclick="decrypt()">Decrypt</button>
+
+    <p>Encrypted message:</p>
+
+    <label for="encrypted">Encrypted:</label>
+    <input type="text" id="encrypted" name="encrypted" readonly>
+
+    <p>Decrypted message:</p>
+
+    <label for="decrypted">Decrypted:</label>
+    <input type="text" id="decrypted" name="decrypted" readonly>
+
+    <b>
+		Please be aware that I, as the operator of this tool, want to emphasize that I hold no liability for any inappropriate or illegal use of this service. It is essential for users to exercise discretion and adhere to the highest ethical and legal standards when utilizing this tool for any purpose. Misuse of this service for any unlawful activity is strongly discouraged, and I will not assume responsibility for such actions. It is the responsibility of the users to use this tool in a lawful and responsible manner, in compliance with all applicable laws and regulations. This disclaimer serves as a reminder of the importance of upholding legality and ethical conduct in all interactions with this tool.
+	 </b>
+
+    <script type="text/javascript">
+        function encrypt() {
+            var message = document.getElementById("message").value;
+
+            if (message) {
+                var encrypted = btoa(message);
+                document.getElementById("encrypted").value = encrypted;
+
+                document.getElementById("message").value = "";
+                document.getElementById("decrypted").value = "";
+            }
+        }
+
+        function decrypt() {
+            var encrypted = document.getElementById("encrypted").value;
+
+            if (encrypted) {
+                var decrypted = atob(encrypted);
+                document.getElementById("decrypted").value = decrypted;
+
+                document.getElementById("message").value = "";
+                document.getElementById("encrypted").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
